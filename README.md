@@ -41,9 +41,9 @@ Auxiliary_functions.R
 2) Simulation scripts
    
 Each simulation scenario is in a separate script. Each script covers CV and the comparison of first balances in for PCA PBs, PLS PBs and Selbal.
-- One block of markers: Sim_1.R
-- 4 same-sized blocks of markers: Sim_2.R
-- different-sized blocks of markers: Sim_3.R
+- Sim_1.R: one block of markers
+- Sim_2.R: 4 same-sized blocks of markers
+- Sim_3.R: different-sized blocks of markers
 
 3) An easy-to-use toy example
    
