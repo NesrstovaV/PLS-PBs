@@ -1,6 +1,5 @@
 # PLS-based-Principal-Balances
-The method to construct principal balances based on PLS is introduced in the paper "Nesrstová, V., Wilms, I., Palarea-Albaladejo, J., Filzmoser, P., Martín-Fernández, J.A., Friedecký, D., & Hron, K. (2023). Principal Balances of Compositional Data for Regression
-and Classification using Partial Least Squares.", which is currently (November 2023) being accepted in the Journal of Chemometrics.
+The method to construct principal balances based on PLS is introduced in the paper "Nesrstová, V, Wilms, I, Palarea-Albaladejo, J, et al. Principal balances of compositional data for regression and classification using partial least squares. Journal of Chemometrics. 2023; 37(12):e3518."
 
 ## Requirements
 Calculations were performed in following software, using the listed libraries:
