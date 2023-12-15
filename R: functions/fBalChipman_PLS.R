@@ -29,8 +29,8 @@ bal<-matrix(0,nbal,col)
 colnames(bal)<-colnames(C)
 # balances associated to the PCs
 # first bal
-bal[1,pcClr1==max(pcClr1)]<-1     # v prvnim radku "bal" a sloupci te promenne, ktera ma nejvetsi hodnotu pcClr1
-bal[1,pcClr1==min(pcClr1)]<--1    # v prvnim radku "bal" a sloupci te promenne, ktera ma nejmensi hodnotu pcClr1
+bal[1,pcClr1==max(pcClr1)]<-1     # line 1 of "bal" and column of a variable having the highest value of pcClr1
+bal[1,pcClr1==min(pcClr1)]<--1    # line 1 of "bal" and column of a variable having the lowest value of pcClr1
 numbal=1
 
 # other bal
@@ -39,7 +39,7 @@ numbal=numbal+1
 while (numbal<col){    
 bal[numbal,]<-bal[numbal-1,]
 useonly<-(bal[numbal-1,]==0)
-bal[numbal,abs(pcClr1)==max(abs(pcClr1[useonly]))]<-balsig[abs(pcClr1)==max(abs(pcClr1[useonly]))] # na danem radku "bal" doplni do sloupce te promenne, ktera ma nejvetsi abs(pcClr1) odpovidajici znamenko z balsig
+bal[numbal,abs(pcClr1)==max(abs(pcClr1[useonly]))]<-balsig[abs(pcClr1)==max(abs(pcClr1[useonly]))] # on a given row of "bal" fill to the corresponding column (of a variable with the highest abs(pcClr1)) the corresponding sign from "balsig" 
 numbal=numbal+1
 }#end while
 }#end if
@@ -49,10 +49,10 @@ numbal=numbal+1
 # coefficients & angle
 VarSBP<-rep(0,nbal)      # UPDATE: calculating cov (or cor); name kept as VarSBP (so that it is not needed to be overwritten everywhere)
 for (f in 1:nbal) {
-  den<-sum(bal[f,]==-1)  # kolik je na radku "f" hodnot -1
-  num<-sum(bal[f,]==1)   # kolik je na radku "f" hodnot +1
-  bal[f,bal[f,]==1]<-sqrt(den/((den+num)*num))     # spocita hodnoty bilanci "v policku s 1"
-  bal[f,bal[f,]==-1]<--sqrt(num/((den+num)*den))   # spocita hodnoty bilanci "v policku s -1"
+  den<-sum(bal[f,]==-1)  # how many times there is "-1" in the row "f"
+  num<-sum(bal[f,]==1)   # how many times there is "+1" in the row "f"
+  bal[f,bal[f,]==1]<-sqrt(den/((den+num)*num))     # calculates values of balances "in cells with 1"
+  bal[f,bal[f,]==-1]<--sqrt(num/((den+num)*den))   # calculates values of balances "in cells with -1"
   # variance of the balance:
   #VarSBP[f]<-abs(sum(bal[f,]*pcClr1))      # NOTE: original code
   
